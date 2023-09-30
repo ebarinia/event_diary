@@ -1,11 +1,13 @@
 import React from "react";
+import Link from 'next/link'
+
 
 const Header = () => {
   return (
-    <div className="navbar bg-slate-400 mt-3 shadow-lg rounded-full">
+    <div className="navbar bg-stone-300 shadow-lg ">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost btn-circle">
+          <label tabIndex={0} className="btn btn-ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -23,18 +25,21 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-slate-400 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-stone-300 rounded-box w-52"
           >
-            <li><a>Homepage</a></li>
-            <li><a>My Events</a></li>
+            <li><Link href='/'>Home</Link></li>
+            <li><Link href='/userevents'>My Events</Link></li>
             <li><a>Calendar</a></li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-      <h1 className='text-3xl font-bold text-center'>EVENT DIARY</h1>
+      <h1 className='text-3xl font-bold text-center'>Event Diary</h1>
       </div>
-      <div className="navbar-end">
+      
+      {/* Search button below */}
+
+      {/* <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +56,7 @@ const Header = () => {
             />
           </svg>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
