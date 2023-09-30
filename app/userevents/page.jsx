@@ -5,7 +5,7 @@ const UserEvents = () => {
   return (
     <>
     <Header/>
-    <div>List of past events</div>
+    <div className='text-center text-3xl font-bold mt-10'>List of events</div>
     </>
   )
 }
