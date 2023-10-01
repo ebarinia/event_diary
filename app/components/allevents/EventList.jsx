@@ -1,11 +1,15 @@
 import React from 'react'
 import Event from './Event'
 
-const EventList = () => {
+const EventList = ( {events}) => {
+
+  const eventNodes = events.map((event, index) => {
+    return <Event event={event} key={index}/>
+  })
   return (
     <>
-      <h1 className='text-3xl text-center mt-[5%]'>Events in your area</h1>
-      <Event/>
+    
+     {eventNodes}
     </>
 
   )
