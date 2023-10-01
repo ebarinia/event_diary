@@ -7,10 +7,9 @@ const EventList = ( {events}) => {
     return <Event event={event} key={index}/>
   })
   return (
-    <>
-    
+    <div className='grid grid-cols-5 gap-4 ml-[10%] mr-[10%] mt-10 mb-10'>
      {eventNodes}
-    </>
+    </div>
 
   )
 }
