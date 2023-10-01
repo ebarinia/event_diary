@@ -17,7 +17,7 @@ export default async (req, res) => {
             console.error(e);
             res.status(500).json({ message: "Internal server error" });  
         };
-    } else if (req.method === 'POST') {
+    } else if (req.method === 'DELETE') {
         try {
             const id = req.query.eventsid;
             const events = db.collection("events");

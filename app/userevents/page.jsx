@@ -1,7 +1,17 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/header/Header'
+import EventDataService from '../api_services/fetchapi'
 
 const UserEvents = () => {
+
+  const [shortlistedEvents, setShortlistedEvents] = useState([])
+
+  useEffect (() => {
+    EventDataService.getShortlistedEvents()
+    .then(data => setShortlistedEvents(data))
+  }, [])
+  
   return (
     <>
     <Header/>
