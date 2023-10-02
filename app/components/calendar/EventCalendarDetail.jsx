@@ -1,20 +1,7 @@
 
-// import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-const EventCalendarDetail = ( {userEvents} ) => {
-
-    // if (userEvents) {
-    //     setCalendarEvent(userEvents[0])
-    //   }
-
-    
-    const calendarEvent = userEvents[0]
-    
-
-    // const calendarEvent = userEvents[0]
-    // console.log(calendarEvent.images[2].url)
-
+const EventCalendarDetail = ( {calendarEvent} ) => {
     // const calendarEvent = calendarEvent.map((event) => {
     //   return ({
     //     color: '#4B578A',
@@ -26,17 +13,18 @@ const EventCalendarDetail = ( {userEvents} ) => {
     //   })
     
     return (
-        <div className="w-60 bg-base-100 shadow-xl basis-1/4 ">
+        <div className="">
+          {calendarEvent && calendarEvent.images && (
             <figure>
-                <Image className='hover:scale-110 transition duration-500 cursor-pointer' src={calendarEvent.images[2].url} alt="Event" width={300} height={300}/>
+              <Image className='hover:scale-110 transition duration-500 cursor-pointer' src={calendarEvent.images[2].url} alt="Event" width={300} height={300}/>
             </figure>
-            <div 
-                className="card-actions justify-center"><h3 className="card-title mt-3">{calendarEvent.name}</h3>
+          )}
+          {calendarEvent && (
+            <div className="card-actions justify-center">
+              <h3 className="card-title mt-3">{calendarEvent.name}</h3>
             </div>
+          )}
         </div>
-        )
-        
-  }
-
+      )
+}
   export default EventCalendarDetail
-  

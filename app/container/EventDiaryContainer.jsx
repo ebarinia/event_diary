@@ -5,44 +5,21 @@ import EventCalendar from '../components/calendar/EventCalendar'
 import EventList from '../components/allevents/EventList'
 import EventDataService from '../api_services/fetchapi'
 import EventCalendarDetail from '../components/calendar/EventCalendarDetail'
-
 const EventDiaryContainer = () => {
-
-  const [events, setEvents] = useState (null)
-  const [userEvents, setUserEvents] = useState (null)
-  const [userEventsIsLoading, setUserEventsLoading] = useState(true)
-  // const [calendarEvent, setCalendarEvent] = useState(null)
-
+  const [events, setEvents] = useState ([])
+  const [userEvents, setUserEvents] = useState ([])
+  const [calendarEvent, setCalendarEvent] = useState([])
   useEffect(() => {
-    const allEvents = [
-      EventDataService.getMusicEvents(), 
-      EventDataService.getSportsEvents(), 
-      EventDataService.getTheatreEvents()
-    ]
-    Promise.all(allEvents)
-    .then(data => data.flat())
+    EventDataService.getAllEvents()
     .then(sourceData => setEvents(sourceData))
-
     EventDataService.getUserEvents()
     .then(userData => {
       setUserEvents(userData)
-      setUserEventsLoading(false)
-      // setCalendarEvent(userEvents[0])
     })
-    
   }, [])
-
-  // useEffect(() => {
-  //     if (userEvents) {
-  //       setCalendarEvent(userEvents[0])
-  //     }
-  // }, [userEvents])
-
-  // console.log(userEvents[0])
-  
-  if (userEventsIsLoading) return <p>React is a piece of shit...</p>
-  if (!userEvents) return <p>No events marked...</p>
-    
+  useEffect(()=> {
+      setCalendarEvent(userEvents[0])
+  }, [userEvents])
   return (
     <>
       <RecommendedEvent events={events}/>
@@ -51,14 +28,18 @@ const EventDiaryContainer = () => {
         <EventCalendar userEvents={userEvents}/>
       </div>
       <div className='w-1/2'>
-        <EventCalendarDetail userEvents={userEvents}/>
+        <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent}/>
       </div>
       </div>
       <EventList events={events}/>
     </>
   )
 }
-
 export default EventDiaryContainer
 
-// example.com/events.json?classificationName[]=music&classificationName[]=sport
+
+
+
+
+
+
