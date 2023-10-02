@@ -4,12 +4,13 @@ import RecommendedEvent from '../components/carousel/RecommendedEvent'
 import EventCalendar from '../components/calendar/EventCalendar'
 import EventList from '../components/allevents/EventList'
 import EventDataService from '../api_services/fetchapi'
-
+import EventCalendarDetail from '../components/calendar/EventCalendarDetail'
 
 const EventDiaryContainer = () => {
 
   const [events, setEvents] = useState ([])
   const [userEvents, setUserEvents] = useState ([])
+  // const [calendarEvent, setCalendarEvent] = useState([])
 
   useEffect(() => {
     const allEvents = [
@@ -22,19 +23,31 @@ const EventDiaryContainer = () => {
     .then(sourceData => setEvents(sourceData))
 
     EventDataService.getUserEvents()
-    .then(userData => setUserEvents(userData))
+    .then(userData => {
+      setUserEvents(userData)
+    })
     
   }, [])
 
+  // useEffect(()=> {
+  //     setCalendarEvent(userEvents[0])
+  // }, [userEvents])
+
+  console.log(userEvents[0])
   
 
   return (
     <>
-    <RecommendedEvent events={events}/>
-    <div className='w-1/2'>
-    <EventCalendar userEvents={userEvents}/>
-    </div>
-    <EventList events={events}/>
+      <RecommendedEvent events={events}/>
+      <div className='flex ml-[15%] mr-[15%]'>
+      <div className='w-1/2'>
+        <EventCalendar userEvents={userEvents}/>
+      </div>
+      {/* <div className='w-1/2'>
+        <EventCalendarDetail userEvents={userEvents}/>
+      </div> */}
+      </div>
+      <EventList events={events}/>
     </>
   )
 }
