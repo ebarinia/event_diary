@@ -4,8 +4,16 @@ import Image from 'next/image'
 
 const EventCalendarDetail = ( {userEvents} ) => {
 
+    // if (userEvents) {
+    //     setCalendarEvent(userEvents[0])
+    //   }
+
+    
     const calendarEvent = userEvents[0]
-    console.log(calendarEvent.images[2].url)
+    
+
+    // const calendarEvent = userEvents[0]
+    // console.log(calendarEvent.images[2].url)
 
     // const calendarEvent = calendarEvent.map((event) => {
     //   return ({

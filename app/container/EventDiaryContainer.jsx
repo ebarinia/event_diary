@@ -8,9 +8,10 @@ import EventCalendarDetail from '../components/calendar/EventCalendarDetail'
 
 const EventDiaryContainer = () => {
 
-  const [events, setEvents] = useState ([])
-  const [userEvents, setUserEvents] = useState ([])
-  // const [calendarEvent, setCalendarEvent] = useState([])
+  const [events, setEvents] = useState (null)
+  const [userEvents, setUserEvents] = useState (null)
+  const [userEventsIsLoading, setUserEventsLoading] = useState(true)
+  // const [calendarEvent, setCalendarEvent] = useState(null)
 
   useEffect(() => {
     const allEvents = [
@@ -25,17 +26,23 @@ const EventDiaryContainer = () => {
     EventDataService.getUserEvents()
     .then(userData => {
       setUserEvents(userData)
+      setUserEventsLoading(false)
+      // setCalendarEvent(userEvents[0])
     })
     
   }, [])
 
-  // useEffect(()=> {
-  //     setCalendarEvent(userEvents[0])
+  // useEffect(() => {
+  //     if (userEvents) {
+  //       setCalendarEvent(userEvents[0])
+  //     }
   // }, [userEvents])
 
-  console.log(userEvents[0])
+  // console.log(userEvents[0])
   
-
+  if (userEventsIsLoading) return <p>React is a piece of shit...</p>
+  if (!userEvents) return <p>No events marked...</p>
+    
   return (
     <>
       <RecommendedEvent events={events}/>
@@ -43,9 +50,9 @@ const EventDiaryContainer = () => {
       <div className='w-1/2'>
         <EventCalendar userEvents={userEvents}/>
       </div>
-      {/* <div className='w-1/2'>
+      <div className='w-1/2'>
         <EventCalendarDetail userEvents={userEvents}/>
-      </div> */}
+      </div>
       </div>
       <EventList events={events}/>
     </>
@@ -53,3 +60,5 @@ const EventDiaryContainer = () => {
 }
 
 export default EventDiaryContainer
+
+// example.com/events.json?classificationName[]=music&classificationName[]=sport
