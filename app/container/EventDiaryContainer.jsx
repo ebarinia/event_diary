@@ -5,10 +5,14 @@ import EventCalendar from '../components/calendar/EventCalendar'
 import EventList from '../components/allevents/EventList'
 import EventDataService from '../api_services/fetchapi'
 import EventCalendarDetail from '../components/calendar/EventCalendarDetail'
+
 const EventDiaryContainer = () => {
   const [events, setEvents] = useState ([])
   const [userEvents, setUserEvents] = useState ([])
   const [calendarEvent, setCalendarEvent] = useState([])
+  const page = "allevents"
+  // const [selectedEvent, setSelectedEvent] = useState(null)
+  
   useEffect(() => {
     EventDataService.getAllEvents()
     .then(sourceData => setEvents(sourceData))
@@ -17,9 +21,17 @@ const EventDiaryContainer = () => {
       setUserEvents(userData)
     })
   }, [])
+  
   useEffect(()=> {
       setCalendarEvent(userEvents[0])
   }, [userEvents])
+
+  // const handleClickEvent = (event) => {  
+  //     setSelectedEvent(event)
+
+  // }
+  
+  
   return (
     <>
       <RecommendedEvent events={events}/>
@@ -31,10 +43,12 @@ const EventDiaryContainer = () => {
         <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent}/>
       </div>
       </div>
-      <EventList events={events}/>
+      <EventList events={events} page = {page}/>
     </>
   )
+
 }
+
 export default EventDiaryContainer
 
 

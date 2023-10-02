@@ -1,7 +1,8 @@
 const baseURL = 'https://app.ticketmaster.com/discovery/v2/events.json?'
+const baseEventURL = 'https://app.ticketmaster.com/discovery/v2/events/'
 const baseHost = 'http://localhost:3000/api/events/'
-const baseCalendarHost = 'http://localhost:3000/api/user_events/'
-const api = '&apikey=0xvibNa31Az9U6GRL9EBMjZW0lfneAHq'
+const baseUserHost = 'http://localhost:3000/api/user_events/'
+const api = 'apikey=0xvibNa31Az9U6GRL9EBMjZW0lfneAHq'
 const dmaid = '&dmaId=607'
 const size = '&size=60'
 const classification = '&classificationName=[music, sports, theatre]'
@@ -12,10 +13,17 @@ const EventDataService = {
             + classification
             + size
             + dmaid
-            + api)
+            + '&' + api)
         const data = await res.json()
         return data._embedded.events
     },
+
+    async getOneEvent(eventId) {
+        const res = await fetch(baseEventURL + eventId + ".json?" + api)
+        const data = await res.json()
+        return data
+    },
+
     // Functions for the DB below
     async getShortlistedEvents() {
         const res = await fetch(baseHost);
@@ -29,9 +37,16 @@ const EventDataService = {
         return res.status;
     },
     async getUserEvents() {
-        const res = await fetch(baseCalendarHost);
+        const res = await fetch(baseUserHost);
+        const data = await res.json();
+        return data
+    },
+
+    async getOneUserEvent(id) {
+        const res = await fetch(baseUserHost);
         const data = await res.json();
         return data
     }
+
 }
 export default EventDataService
