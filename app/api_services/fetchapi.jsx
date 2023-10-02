@@ -1,5 +1,6 @@
 const baseURL = 'https://app.ticketmaster.com/discovery/v2/events.json?'
 const baseHost = 'http://localhost:3000/api/events/'
+const baseCalendarHost = 'http://localhost:3000/api/user_events/'
 const api = '&apikey=0xvibNa31Az9U6GRL9EBMjZW0lfneAHq'
 const dmaid = '&dmaId=607'
 const size = '&size=20'
@@ -51,6 +52,12 @@ const EventDataService = {
             method: 'DELETE'
         })
         return res.status;
+    },
+
+    async getUserEvents() {
+        const res = await fetch(baseCalendarHost);
+        const data = await res.json();
+        return data
     }
 }
 
