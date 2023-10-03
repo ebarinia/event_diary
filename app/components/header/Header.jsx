@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <div className="navbar bg-stone-300 shadow-lg ">
+    <div className="navbar rounded backdrop-blur-sm shadow-lg fixed top-0 w-full z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost">
@@ -25,7 +25,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-stone-300 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow backdrop-blur rounded-box w-52"
           >
             <li>
               <Link href="/">Home</Link>
@@ -38,9 +38,6 @@ const Header = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="navbar-center">
-        <h1 className="text-3xl font-bold text-center">Event Diary</h1>
       </div>
       <div className="navbar-end">
         <div className="avatar">
