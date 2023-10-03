@@ -37,6 +37,13 @@ const EventDiaryContainer = () => {
     })
   }
 
+  const updateBooking = (event) => {
+    EventDataService.updateOneUserEvent(event)
+    .then(sourceData => {
+      setCalendarEvent(sourceData)
+    })
+  }
+
   if (isLoading) {return <p>React is shit</p>}
   else {
   return (
@@ -48,7 +55,7 @@ const EventDiaryContainer = () => {
       </div>
       <div className='w-1/2 mt-[5%]'>
         <h2 className='text-2xl'>Your next event</h2>
-        <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent}/>
+        <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent} updateBooking={updateBooking}/>
       </div>
       </div>
       <EventList events={events} page = {page}/>

@@ -1,7 +1,7 @@
 
 import Image from 'next/image'
 
-const EventCalendarDetail = ( {calendarEvent} ) => {
+const EventCalendarDetail = ( {calendarEvent, updateBooking} ) => {
     // const calendarEvent = calendarEvent.map((event) => {
     //   return ({
     //     color: '#4B578A',
@@ -11,6 +11,13 @@ const EventCalendarDetail = ( {calendarEvent} ) => {
     //     summary: event.name,
     //     })
     //   })
+
+const handleBooking = () => {
+    updateBooking({
+    id: calendarEvent.id,
+    booked: !calendarEvent.booked
+    })
+}
     
     return (
       <>
@@ -31,6 +38,10 @@ const EventCalendarDetail = ( {calendarEvent} ) => {
                 <p className="text-xs text-neutral-500 dark:text-neutral-300">
                   {calendarEvent.dates.start.localDate} {calendarEvent.dates.start.localTime}
                 </p>
+          </div>
+          <div>
+            <button onClick={handleBooking}>Book</button>
+            {/* <button onClick={handleRemove}>Remove</button> */}
           </div>
         </>)}
         
