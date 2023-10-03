@@ -23,7 +23,7 @@ const RecommendedEvent = ( {events}) => {
     <div className="h-[50vh] flex items-center justify-center mb-7">
       <div >
         <p className="ml-[12%] text-gray-400 text-xl mb-4">Recommended Event</p>
-        <div className="carousel flex mx-auto max-w-[75%] h-[250px] shadow-lg">
+        <div className="carousel carousel-center p-4 space-x-4 bg-gray-700 flex mx-auto max-w-[75%] shadow-lg">
           {eventNodes}
         </div>
       </div>
