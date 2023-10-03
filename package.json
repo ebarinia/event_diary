@@ -16,7 +16,8 @@
     "react": "latest",
     "react-calendar": "^4.6.0",
     "react-dom": "latest",
-    "schedulely": "^0.3.5"
+    "schedulely": "^0.3.5",
+    "vercel": "^32.4.1"
   },
   "devDependencies": {
     "@types/node": "latest",
