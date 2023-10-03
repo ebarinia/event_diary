@@ -1,10 +1,10 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import RecommendedEvent from '../components/carousel/RecommendedEvent'
-import EventCalendar from '../components/calendar/EventCalendar'
-import EventList from '../components/allevents/EventList'
+import RecommendedEvent from './carousel/RecommendedEvent'
+import EventCalendar from './calendar/EventCalendar'
+import EventList from './allevents/EventList'
 import EventDataService from '../api_services/fetchapi'
-import EventCalendarDetail from '../components/calendar/EventCalendarDetail'
+import EventCalendarDetail from './calendar/EventCalendarDetail'
 
 const EventDiaryContainer = () => {
   const [events, setEvents] = useState ([])
@@ -35,7 +35,7 @@ const EventDiaryContainer = () => {
   return (
     <>
       <RecommendedEvent events={events}/>
-      <div className='flex ml-[15%] mr-[15%]'>
+      <div className='flex mx-auto max-w-[75%]'>
       <div className='w-1/2'>
         <EventCalendar userEvents={userEvents}/>
       </div>

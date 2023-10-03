@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/container/EventDiaryContainer.jsx", "app/components/calendar/EventCalendar.jsx", "app/components/carousel/Event.jsx", "app/components/carousel/RecommendedEvent.jsx", "app/userevents/page.jsx", "app/page.jsx", "app/layout.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/EventDiaryContainer.jsx", "app/components/calendar/EventCalendar.jsx", "app/components/carousel/Event.jsx", "app/components/carousel/RecommendedEvent.jsx", "app/userevents/page.jsx", "app/page.jsx", "app/layout.tsx"],
   "exclude": ["node_modules"]
 }

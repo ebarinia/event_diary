@@ -8,9 +8,9 @@ export default async (req, res) => {
 
     if (req.method === 'GET') {
         try {
-            const id = req.query.eventsid;
-            const events = db.collection("events");
-            const event = await events.findOne({ _id: new ObjectId(id) });
+            const id = req.query.user_eventsid;
+            const user_events = db.collection("user_events");
+            const event = await user_events.findOne({ id: id });
             
             res.json(event);
         }   catch (e) {
@@ -20,7 +20,7 @@ export default async (req, res) => {
     } else if (req.method === 'DELETE') {
         try {
             const id = req.query.eventsid;
-            const events = db.collection("events");
+            const events = db.collection("user_events");
             const eventToDelete = await events.deleteOne({ _id: new ObjectId(id) });
             res.json(eventToDelete);
         }   catch (e) {

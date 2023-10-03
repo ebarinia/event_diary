@@ -1,6 +1,5 @@
 const baseURL = 'https://app.ticketmaster.com/discovery/v2/events.json?'
 const baseEventURL = 'https://app.ticketmaster.com/discovery/v2/events/'
-const baseHost = 'http://localhost:3000/api/events/'
 const baseUserHost = 'http://localhost:3000/api/user_events/'
 const api = 'apikey=0xvibNa31Az9U6GRL9EBMjZW0lfneAHq'
 const dmaid = '&dmaId=607'
@@ -42,8 +41,8 @@ const EventDataService = {
         return data
     },
 
-    async getOneUserEvent(id) {
-        const res = await fetch(baseUserHost);
+    async getOneUserEvent(eventId) {
+        const res = await fetch(baseUserHost + eventId);
         const data = await res.json();
         return data
     }

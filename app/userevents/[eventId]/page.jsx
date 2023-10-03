@@ -1,5 +1,7 @@
+'use client'
 import Header from '@/app/components/header/Header'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import EventDataService from '@/app/api_services/fetchapi'
 
 const EventForm = ({params}) => {
 
@@ -7,7 +9,7 @@ const EventForm = ({params}) => {
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
-    EventDataService.getOneEvent(params.eventId)
+    EventDataService.getOneUserEvent(params.eventId)
     .then(sourceData => {
         setSelectedEvent(sourceData)
         setLoading(false)
@@ -15,14 +17,11 @@ const EventForm = ({params}) => {
   }, [])
 
 if (isLoading) return <p>React is shit</p>
-return (
-    <p>{selectedEvent.name}</p>
-    )
 
-  return (
+return (
     <>
-    <Header/>
-    <div>User Event Form to be finished</div>
+      <Header/>
+      <p>{selectedEvent.name}</p>
     </>
   )
 }

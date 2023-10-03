@@ -1,12 +1,8 @@
 import Header from './components/header/Header'
-import EventDiaryContainer from './container/EventDiaryContainer'
-import EventDataService from './api_services/fetchapi'
+import EventDiaryContainer from './components/EventDiaryContainer'
 
 
 export default function Home() {
-
-
-
 
   return (
     <>
