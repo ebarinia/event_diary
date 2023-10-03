@@ -10,7 +10,7 @@ const EventList = ({ events, page }) => {
     return <Event event={event} key={index} page={page} />
   })
   return (
-    <div className='grid grid-cols-2 gap-4 mt-10 mx-auto max-w-[75%]'>
+    <div className='grid grid-cols-2 gap-4 mx-auto max-w-[75%]'>
       {eventNodes}
     </div>
   );

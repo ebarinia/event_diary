@@ -24,7 +24,7 @@ const EventCalendar = ( {userEvents, updateCalendarDetail} ) => {
         summary: event.name,
       })
     }
-    if (event.favourite === true) {
+    else {
       return ({
         color: '#f5ca4a',
         // end: event.dates.end.dateTime,
