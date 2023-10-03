@@ -12,6 +12,8 @@ const EventDiaryContainer = () => {
   const [calendarEvent, setCalendarEvent] = useState([])
   const page = "allevents"
   // const [selectedEvent, setSelectedEvent] = useState(null)
+  const [isLoading, setLoading] = useState(true)
+
   
   useEffect(() => {
     EventDataService.getAllEvents()
@@ -19,34 +21,33 @@ const EventDiaryContainer = () => {
     EventDataService.getUserEvents()
     .then(userData => {
       setUserEvents(userData)
+      setLoading(false)
     })
   }, [])
   
   useEffect(()=> {
       setCalendarEvent(userEvents[0])
+      setLoading(false)
   }, [userEvents])
 
-  // const handleClickEvent = (event) => {  
-  //     setSelectedEvent(event)
-
-  // }
-  
-  
+  if (isLoading) {return <p>React is shit</p>}
+  else {
   return (
     <>
       <RecommendedEvent events={events}/>
-      <div className='flex mx-auto max-w-[75%]'>
+      <div className='flex mx-auto max-w-[75%] mt-[10%] bg-slate-200 rounded-xl'>
       <div className='w-1/2'>
         <EventCalendar userEvents={userEvents}/>
       </div>
-      <div className='w-1/2'>
+      <div className='w-1/2 mt-[5%]'>
+        <h2 className='text-2xl'>Your next event</h2>
         <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent}/>
       </div>
       </div>
       <EventList events={events} page = {page}/>
     </>
   )
-
+  }
 }
 
 export default EventDiaryContainer
