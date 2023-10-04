@@ -59,6 +59,19 @@ const EventDataService = {
         // .then(res => res.json());
         const data = await res.json();
         return data
+    },
+
+    async addOneUserEvent(event) {
+        const res = await fetch(baseUserHost,
+            {
+                method: 'POST',
+                body: JSON.stringify(event),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            const data = await res.json();
+            return data
     }
 
 }
