@@ -7,13 +7,13 @@ const Event = ( {event} ) => {
     <div className="relative group">
       <Link href={`/events/${event.id}`}>
         <Image
-        src={event.images[2].url}
+        src={event.images[3].url}
         alt={event.name}
         height={300}
         width={300}
-        className=''
+        className='rounded-lg'
         />
-        <div className="absolute top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-0 text-white group-hover:bg-opacity-50 transition-opacity duration-200">
+        <div className="absolute text-center top-4 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-0 text-white">
           {event.name}
         </div>
         </Link>

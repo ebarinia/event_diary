@@ -62,7 +62,7 @@ export default function EventPage({ params }) {
             <div className="relative h-72 w-72">
                 <Image 
                     className="shadow-md" 
-                    src={selectedEvent.images[2].url} 
+                    src={selectedEvent.images[3].url} 
                     layout="fill"
                     objectFit="cover"
                     alt=""
