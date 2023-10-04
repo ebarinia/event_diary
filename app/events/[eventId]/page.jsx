@@ -27,12 +27,11 @@ export default function EventPage({ params }) {
     formattedDate = eventDate.toLocaleDateString('en-UK', options);
     }
 
-    if (isLoading) return <p>React is shit</p>
+    if (isLoading) return <p>Loading</p>
     return (
         <>
         <Header/>
-        <Link href='/' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Back</Link>
-        <div className="flex mx-auto max-w-[60%] mt-[7%] ">
+        <div className="flex mx-auto max-w-[60%] mt-[7%]">
             <div className="relative h-72 w-72">
                 <Image 
                     className="shadow-md" 
@@ -57,7 +56,7 @@ export default function EventPage({ params }) {
             </div>
         </div>
         <div className="mt-[5%] mx-auto max-w-[40%]">
-        <Map address={`${selectedEvent._embedded.venues[0].name} ${selectedEvent._embedded.venues[0].city.name}`}/>
+            <Map address={`${selectedEvent._embedded.venues[0].name} ${selectedEvent._embedded.venues[0].city.name}`}/>
         </div>
         </>
     )
