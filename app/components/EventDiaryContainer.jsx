@@ -58,7 +58,7 @@ const EventDiaryContainer = () => {
     
       <RecommendedEvent events={events}/>
       <div className='bg-gray-700 mb-[10%]'>
-        <div className='flex mx-auto max-w-[75%] h-[50vh]'>
+        <div className='flex mx-auto max-w-[75%] h-[60vh]'>
           <div className='w-1/2'>
             <EventCalendar userEvents={userEvents} updateCalendarDetail = {updateCalendarDetail}/>
           </div>

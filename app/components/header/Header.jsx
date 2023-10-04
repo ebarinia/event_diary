@@ -6,8 +6,8 @@ const Header = () => {
   return (
     <div className="navbar bg-gray-800/50 rounded-3xl z-50 shadow-lg mt-2 mx-auto">
           <div className="mx-auto">
-              <Link className="text-white mr-8" href="/">Home</Link>
-              <Link className="text-white ml-8" href="/userevents">My Events</Link>
+              <Link className="text-white mr-8 hover:text-orange-500 transition" href="/">Home</Link>
+              <Link className="text-white ml-8 hover:text-orange-500 transition" href="/userevents">My Events</Link>
           </div>
     </div>
   );
