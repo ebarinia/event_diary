@@ -45,7 +45,21 @@ const EventDataService = {
         const res = await fetch(baseUserHost + eventId);
         const data = await res.json();
         return data
+    },
+
+    async updateOneUserEvent(event) {
+        const res = await fetch(baseUserHost + event.id,
+            {
+                method: 'PUT',
+                body: JSON.stringify(event),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+        // .then(res => res.json());
+        const data = await res.json();
+        return data
     }
 
 }
-export default EventDataService
+export default EventDataService;

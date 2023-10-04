@@ -27,5 +27,21 @@ export default async (req, res) => {
             console.error(e);
             res.status(500).json({ message: "Internal server error" });  
         };
+    } else if (req.method === 'PUT') {
+        try {
+            const eventsid = req.query.eventsid;
+            const events = db.collection("user_events");
+            const eventToPut = await events.updateOne({ id: req.body.id }, 
+                {$set: 
+                    {
+                        booked: req.body.booked
+                    }
+                }
+            );
+            res.json(eventToPut);
+        }   catch (e) {
+            console.error(e);
+            res.status(500).json({ message: "Internal server error" });  
+        };
     };
 };
