@@ -30,7 +30,7 @@ const EventDataService = {
         return data
     },
     async deleteDatabaseEvent(id) {
-        const res = await fetch(baseURL + id, {
+        const res = await fetch(baseUserHost + id, {
             method: 'DELETE'
         })
         return res.status;

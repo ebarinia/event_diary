@@ -14,7 +14,7 @@ const EventCalendar = ( {userEvents, updateCalendarDetail} ) => {
     updateCalendarDetail(event)
   }
 
-  const calendarNodes = userEvents.map((event) => {
+    const calendarNodes = userEvents.map((event) => {
     if (event.booked === true) {
       return ({
         color: '#5dca6e',
@@ -34,7 +34,8 @@ const EventCalendar = ( {userEvents, updateCalendarDetail} ) => {
       })
     }
   })
-  
+
+ 
   return (
     <div className='mt-10'>
       <Schedulely events = {calendarNodes} actions = {{onEventClick: (event) => {handleCalendarClick(event)}}}/>

@@ -1,7 +1,8 @@
-
+'use client'
+import Link from 'next/link'
 import Image from 'next/image'
 
-const EventCalendarDetail = ( {calendarEvent, updateBooking} ) => {
+const EventCalendarDetail = ( {calendarEvent, updateEvent, removeUserEvent} ) => {
     // const calendarEvent = calendarEvent.map((event) => {
     //   return ({
     //     color: '#4B578A',
@@ -12,16 +13,20 @@ const EventCalendarDetail = ( {calendarEvent, updateBooking} ) => {
     //     })
     //   })
 
-const handleBooking = () => {
-    updateBooking({
+  const handleBooking = () => {
+    updateEvent({
     id: calendarEvent.id,
     booked: !calendarEvent.booked
     })
 }
-    
-    return (
+
+  const handleRemove = () => {
+    removeUserEvent(calendarEvent.id)
+}
+
+  return (
       <>
-          {calendarEvent && (
+        {calendarEvent && (
             <>
             <p className='text-xl text-gray-400 ml-4'>Your next event:</p>
             <figure>
@@ -40,11 +45,22 @@ const handleBooking = () => {
                   {calendarEvent.dates.start.localDate} at {calendarEvent.dates.start.localTime}
                 </p>
           </div>
-          <div>
-            <button onClick={handleBooking}>Book</button>
-            {/* <button onClick={handleRemove}>Remove</button> */}
-          </div>
-        </>)}
+
+          {calendarEvent.booked && (
+            <div>
+              <button>Resell</button>
+            </div>
+          )}
+          {!calendarEvent.booked && (
+            <div>
+              <Link href={calendarEvent.url} target="blank" className="bg-orange-500 hover:bg-orange-600 transition text-white font-bold py-2 px-4 rounded"><button onClick={handleBooking}>Book</button></Link>
+              <button onClick={handleRemove}>Remove</button>
+            </div>
+          )}
+          </>)
+        }
+        {!calendarEvent && <p>Please choose an event.</p>}
+
       </>
       )
 }

@@ -19,9 +19,9 @@ export default async (req, res) => {
         };
     } else if (req.method === 'DELETE') {
         try {
-            const id = req.query.eventsid;
+            const id = req.query.user_eventsid;
             const events = db.collection("user_events");
-            const eventToDelete = await events.deleteOne({ _id: new ObjectId(id) });
+            const eventToDelete = await events.deleteOne({ id: id });
             res.json(eventToDelete);
         }   catch (e) {
             console.error(e);
