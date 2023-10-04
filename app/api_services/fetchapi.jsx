@@ -61,19 +61,35 @@ const EventDataService = {
         return data
     },
 
+
+    async addOneUserEvent(event) {
+        const res = await fetch(baseUserHost,
+            {
+                method: 'POST',
+                body: JSON.stringify(event),
+          headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            const data = await res.json();
+            return data
+    },
+
     async updateEventReview(ratedEvent) {
         console.log(ratedEvent)
         const res = await fetch(baseUserHost + ratedEvent.id,
             {
                 method: 'PUT',
                 body: JSON.stringify(ratedEvent),
+
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
-        // .then(res => res.json());
+        
         const data = await res.json();
         return data
+
     }
 
 }
