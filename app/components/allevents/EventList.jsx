@@ -1,16 +1,9 @@
 import React from 'react'
 import Event from './Event'
 
-const EventList = ({ userEvents, events, page }) => {
-  
-  //This is to filter the duplicates in the list of events
-  const nameFilter = (name) => name.toLowerCase().split(' ').slice(0, 2).join(' ');
-  const uniqueEvents = events.filter((event, index, self) => {
-    return index === self.findIndex(e => nameFilter(e.name) === nameFilter(event.name));
-  }); 
+const EventList = ({ events, page }) => {
 
-  //This is to sort the events by their date
-  const sortedEvents = uniqueEvents.sort((a, b) => {
+  const sortedEvents = events.sort((a, b) => {
     const dateA = new Date(a.dates.start.localDate);
     const dateB = new Date(b.dates.start.localDate);
     return dateA - dateB;

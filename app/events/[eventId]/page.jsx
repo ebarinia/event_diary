@@ -58,7 +58,7 @@ export default function EventPage({ params }) {
     return (
         <>
         <Header/>
-        <div className="flex mx-auto max-w-[60%] mt-[7%]">
+        <div className="flex mx-auto max-w-[40%] mt-[7%]">
             <div className="relative h-72 w-72">
                 <Image 
                     className="shadow-md" 

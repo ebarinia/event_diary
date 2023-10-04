@@ -55,6 +55,16 @@ const EventDiaryContainer = () => {
     .then((sourceData) => {setUserEvents(sourceData)})
   }
 
+  const nameFilter = (name) => name.toLowerCase().split(' ').slice(0, 2).join(' ');
+
+  const uniqueEvents = events.filter((event, index, self) => {
+    return index === self.findIndex(e => nameFilter(e.name) === nameFilter(event.name));
+  }); 
+
+  const filteredEvents = uniqueEvents.filter(event => {
+    return !userEvents.some(userEvent => nameFilter(userEvent.id) === nameFilter(event.id));
+  });
+
   if (isLoading) {return <p>React is shit</p>}
   else {
   return (
@@ -78,7 +88,7 @@ const EventDiaryContainer = () => {
           </div>
         </div>
       </div>
-      <EventList events={events} page = {page}/>
+      <EventList events={filteredEvents} page = {page} />
     </>
   )
   }

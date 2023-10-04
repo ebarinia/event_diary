@@ -34,12 +34,10 @@ if (isLoading) return <p>React is shit</p>
 return (
     <>
       <Header/>
-      
         <UserEventForm event={selectedEvent} overallRated = {overallRated} venueRated={venueRated} 
         pricesRated={pricesRated} atmosphereRated={atmosphereRated} oneLinerRated={oneLinerRated} 
         setOverallRated = {setOverallRated} setVenueRated = {setVenueRated} setPricesRated = {setPricesRated} setAtmosphereRated = {setAtmosphereRated} 
         setOneLinerRated = {setOneLinerRated} rateEvent = {rateEvent}/>
-      
     </>
   )
 
