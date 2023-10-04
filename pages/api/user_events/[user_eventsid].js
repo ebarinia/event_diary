@@ -29,12 +29,20 @@ export default async (req, res) => {
         };
     } else if (req.method === 'PUT') {
         try {
-            const eventsid = req.query.eventsid;
+            // const eventsid = req.query.user_eventsid;
             const events = db.collection("user_events");
+            console.log(req.body)
             const eventToPut = await events.updateOne({ id: req.body.id }, 
                 {$set: 
                     {
-                        booked: req.body.booked
+                        booked: req.body.booked,
+                        rated: {
+                            overall: req.body.overall,
+                            venue: req.body.venue,
+                            atmosphere: req.body.atmosphere,
+                            prices: req.body.prices,
+                            oneliner: req.body.oneliner
+                        }
                     }
                 }
             );
