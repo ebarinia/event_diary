@@ -9,6 +9,7 @@ const EventList = ({ events, page }) => {
     return dateA - dateB;
   }); 
 
+
   const eventNodes = sortedEvents.map((event, index) => {
     return <Event event={event} key={index} page={page} />
   })

@@ -13,7 +13,7 @@ const EventForm = ({params}) => {
   const [venueRated, setVenueRated] = useState (1)
   const [pricesRated, setPricesRated] = useState (1)
   const [atmosphereRated, setAtmosphereRated] = useState (1)
-  const [oneLinerRated, setOneLinerRated] = useState ("")
+  const [oneLinerRated, setOneLinerRated] = useState ("No comment")
   const router = useRouter()
 
   useEffect(() => {
