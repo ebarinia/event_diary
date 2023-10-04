@@ -65,7 +65,7 @@ const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmospher
                     </label>
                     </div>
                     <div className="rating">
-                        <Rating unratedColor="blue" ratedColor="blue" value = {event.rated.overall} onChange={(value) => setOverallRated(value)}/>
+                        <Rating unratedColor="blue" ratedColor="blue" value ='' onChange={(value) => setOverallRated(value)}/>
                     </div>
                 </div>
                 <div className="md:flex md:items-center mb-6">
@@ -75,7 +75,7 @@ const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmospher
                     </label>
                     </div>
                     <div className="rating">
-                    <Rating unratedColor="blue" ratedColor="blue" value = {event.rated.venue} onChange={(value) => setVenueRated(value)}/>
+                    <Rating unratedColor="blue" ratedColor="blue" value = '' onChange={(value) => setVenueRated(value)}/>
                     </div>
                 </div>
                 <div className="md:flex md:items-center mb-6">
@@ -85,7 +85,7 @@ const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmospher
                     </label>
                     </div>
                     <div className="rating">
-                    <Rating unratedColor="blue" ratedColor="blue" value = {event.rated.prices} onChange={(value) => setPricesRated(value)}/>
+                    <Rating unratedColor="blue" ratedColor="blue" value = '' onChange={(value) => setPricesRated(value)}/>
                     </div>
                 </div>
                 <div className="md:flex md:items-center mb-6">
@@ -95,7 +95,7 @@ const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmospher
                     </label>
                     </div>
                     <div className="rating">
-                        <Rating unratedColor="blue" ratedColor="blue" value = {event.rated.atmosphere} onChange={(value) => setAtmosphereRated(value)}/>
+                        <Rating unratedColor="blue" ratedColor="blue" value = '' onChange={(value) => setAtmosphereRated(value)}/>
                     </div>
                 </div>
                 <div className="md:flex md:items-center mb-6">

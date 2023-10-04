@@ -65,6 +65,7 @@ export default function EventPage({ params }) {
                     src={selectedEvent.images[2].url} 
                     layout="fill"
                     objectFit="cover"
+                    alt=""
                 />
             </div>
             <div className="ml-4">
