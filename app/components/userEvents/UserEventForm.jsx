@@ -1,10 +1,20 @@
 'use client'
+import React, {useEffect} from "react"
 import Image from "next/image"
 import { Rating, Input, Textarea } from "@material-tailwind/react"
 
 const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmosphereRated, oneLinerRated, 
     setOverallRated, setVenueRated, setPricesRated, setAtmosphereRated, setOneLinerRated, rateEvent} ) => {
 
+
+    // useEffect(() => {
+    //     setOverallRated(event.overallRated)
+    //     setVenueRated(venueRated)
+    //     setPricesRated(pricesRated)
+    //     setAtmosphereRated(atmosphereRated)
+    //     setOneLinerRated(oneLinerRated)
+    //     }
+    //     , [])
 
     const onRatedSubmit = () => {
         const ratedEvent = {
@@ -55,7 +65,7 @@ const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmospher
                     </label>
                     </div>
                     <div className="rating">
-                        <Rating unratedColor="blue" ratedColor="blue" onChange={(value) => setOverallRated(value)}/>
+                        <Rating unratedColor="blue" ratedColor="blue" value = {event.rated.overall} onChange={(value) => setOverallRated(value)}/>
                     </div>
                 </div>
                 <div className="md:flex md:items-center mb-6">
@@ -65,7 +75,7 @@ const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmospher
                     </label>
                     </div>
                     <div className="rating">
-                    <Rating unratedColor="blue" ratedColor="blue" onChange={(value) => setVenueRated(value)}/>
+                    <Rating unratedColor="blue" ratedColor="blue" value = {event.rated.venue} onChange={(value) => setVenueRated(value)}/>
                     </div>
                 </div>
                 <div className="md:flex md:items-center mb-6">
@@ -75,7 +85,7 @@ const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmospher
                     </label>
                     </div>
                     <div className="rating">
-                    <Rating unratedColor="blue" ratedColor="blue" onChange={(value) => setPricesRated(value)}/>
+                    <Rating unratedColor="blue" ratedColor="blue" value = {event.rated.prices} onChange={(value) => setPricesRated(value)}/>
                     </div>
                 </div>
                 <div className="md:flex md:items-center mb-6">
@@ -85,7 +95,7 @@ const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmospher
                     </label>
                     </div>
                     <div className="rating">
-                        <Rating unratedColor="blue" ratedColor="blue" onChange={(value) => setAtmosphereRated(value)}/>
+                        <Rating unratedColor="blue" ratedColor="blue" value = {event.rated.atmosphere} onChange={(value) => setAtmosphereRated(value)}/>
                     </div>
                 </div>
                 <div className="md:flex md:items-center mb-6">
