@@ -48,13 +48,13 @@ const EventCalendarDetail = ( {calendarEvent, updateEvent, removeUserEvent} ) =>
 
           {calendarEvent.booked && (
             <div>
-              <button>Resell</button>
+              <button className='ml-5 bg-orange-600 hover:bg-orange-500 transition text-white font-bold py-2 px-4 rounded'>Resell</button>
             </div>
           )}
           {!calendarEvent.booked && (
             <div>
-              <Link href={calendarEvent.url} target="blank" className="bg-orange-500 hover:bg-orange-600 transition text-white font-bold py-2 px-4 rounded"><button onClick={handleBooking}>Book</button></Link>
-              <button onClick={handleRemove}>Remove</button>
+              <Link href={calendarEvent.url} target="blank"><button className="ml-5 bg-orange-600 hover:bg-orange-500 transition text-white font-bold py-2 px-4 rounded" onClick={handleBooking}>Book</button></Link>
+              <button className='ml-5 bg-orange-600 hover:bg-orange-500 transition text-white font-bold py-2 px-4 rounded' onClick={handleRemove}>Remove</button>
             </div>
           )}
           </>)
