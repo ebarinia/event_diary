@@ -40,8 +40,12 @@ const EventDiaryContainer = () => {
 
   const updateEvent = (event) => {
     EventDataService.updateOneUserEvent(event)
-    .then(sourceData => {
-      setCalendarEvent(sourceData)
+    .then(() => EventDataService.getUserEvents())
+    .then(userData => setUserEvents(userData))
+    .then(() => EventDataService.getOneUserEvent(event.id))
+    .then((result) => {
+      setCalendarEvent(result)
+      setLoading(false)
     })
   }
   

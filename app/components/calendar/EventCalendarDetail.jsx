@@ -1,4 +1,5 @@
-
+'use client'
+import Link from 'next/link'
 import Image from 'next/image'
 
 const EventCalendarDetail = ( {calendarEvent, updateEvent, removeUserEvent} ) => {
@@ -50,7 +51,7 @@ const EventCalendarDetail = ( {calendarEvent, updateEvent, removeUserEvent} ) =>
           )}
           {!calendarEvent.booked && (
             <div>
-              <button onClick={handleBooking}>Book</button>
+              <Link href={calendarEvent.url} target="blank" className="bg-orange-500 hover:bg-orange-600 transition text-white font-bold py-2 px-4 rounded"><button onClick={handleBooking}>Book</button></Link>
               <button onClick={handleRemove}>Remove</button>
             </div>
           )}
