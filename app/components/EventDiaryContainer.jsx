@@ -70,10 +70,10 @@ const EventDiaryContainer = () => {
   return (
     <>
     <Header/>
-    <header className="h-[95vh]  flex flex-col items-center justify-center header">
+    <header className="h-[95vh] flex flex-col items-center justify-center header">
       <div className='mx-auto max-w-[75%]'>
-      <h1 class="mb-4 text-center text-4xl font-extrabold leading-none tracking-tight text-gray-600 md:text-5xl lg:text-6xl">Event Diary</h1>
-      <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 text-center">Your personal booking and diary system for your events, all in one place. Discover events in your area, book or shortlist them for later</p>
+      <h1 class="mb-4 text-center text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Event Diary</h1>
+      <p class="mb-6 text-lg font-normal text-gray-900 lg:text-xl sm:px-16 xl:px-48 text-center">Your personal booking and diary system for your events, all in one place. Discover events in your area, book or shortlist them for later</p>
       </div>
     </header>
     
@@ -83,8 +83,10 @@ const EventDiaryContainer = () => {
           <div className='w-1/2'>
             <EventCalendar userEvents={userEvents} updateCalendarDetail = {updateCalendarDetail}/>
           </div>
-          <div className='w-1/2 mt-[5%]'>
-            <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent} updateEvent={updateEvent} removeUserEvent={removeUserEvent}/>
+          <div className='w-1/2 flex justify-center items-center mb-10'>
+            <div>
+              <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent} updateEvent={updateEvent} removeUserEvent={removeUserEvent}/>
+            </div>
           </div>
         </div>
       </div>
