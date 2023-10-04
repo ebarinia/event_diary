@@ -17,7 +17,7 @@ const UserEvents = () => {
   return (
     <>
       <Header/>
-      <div className='text-center text-3xl font-bold mt-10'>List of events</div>
+      <br></br><br></br><br></br>
       <EventList events={userEvents} page={page}/>
     </>
   )

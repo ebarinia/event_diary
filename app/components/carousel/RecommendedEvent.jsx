@@ -14,16 +14,16 @@ const RecommendedEvent = ( {events}) => {
     return dateA - dateB;
   }); 
 
-  const eventNodes = sortedEvents.slice(0,10).map((event, index) => {
+  const eventNodes = sortedEvents.slice(0,4).map((event, index) => {
     return <Event event={event} key={index}/>
   })
 
   return (
     <>
-    <div className="h-[50vh] flex items-center justify-center mb-7">
+    <div className="h-[50vh] flex items-center justify-center mb-8">
       <div >
-        <p className="ml-[12%] text-gray-400 text-xl mb-4">Recommended Event</p>
-        <div className="carousel carousel-center p-4 space-x-4 bg-gray-700 flex mx-auto max-w-[75%] shadow-lg">
+        <p className="text-gray-400 text-xl mb-4">Recommended Event</p>
+        <div className="carousel carousel-center p-4 space-x-4 bg-gray-700 flex mx-auto max-w-[100%] shadow-lg">
           {eventNodes}
         </div>
       </div>
