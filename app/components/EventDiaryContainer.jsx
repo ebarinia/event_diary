@@ -26,7 +26,8 @@ const EventDiaryContainer = () => {
   }, [])
   
   useEffect(()=> {
-      setCalendarEvent(userEvents[0])
+      if (userEvents.length > 0) {setCalendarEvent(userEvents[0])}
+      else {setCalendarEvent(null)}
       setLoading(false)
   }, [userEvents])
 
@@ -37,11 +38,17 @@ const EventDiaryContainer = () => {
     })
   }
 
-  const updateBooking = (event) => {
+  const updateEvent = (event) => {
     EventDataService.updateOneUserEvent(event)
     .then(sourceData => {
       setCalendarEvent(sourceData)
     })
+  }
+  
+  const removeUserEvent = (id) => {
+    EventDataService.deleteDatabaseEvent(id)
+    .then(() => EventDataService.getUserEvents())
+    .then((sourceData) => {setUserEvents(sourceData)})
   }
 
   if (isLoading) {return <p>React is shit</p>}
@@ -55,7 +62,7 @@ const EventDiaryContainer = () => {
       </div>
       <div className='w-1/2 mt-[5%]'>
         <h2 className='text-2xl'>Your next event</h2>
-        <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent} updateBooking={updateBooking}/>
+        <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent} updateEvent={updateEvent} removeUserEvent={removeUserEvent}/>
       </div>
       </div>
       <EventList events={events} page = {page}/>
@@ -65,10 +72,3 @@ const EventDiaryContainer = () => {
 }
 
 export default EventDiaryContainer
-
-
-
-
-
-
-

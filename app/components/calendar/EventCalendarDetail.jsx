@@ -1,7 +1,7 @@
 
 import Image from 'next/image'
 
-const EventCalendarDetail = ( {calendarEvent, updateBooking} ) => {
+const EventCalendarDetail = ( {calendarEvent, updateEvent, removeUserEvent} ) => {
     // const calendarEvent = calendarEvent.map((event) => {
     //   return ({
     //     color: '#4B578A',
@@ -12,16 +12,20 @@ const EventCalendarDetail = ( {calendarEvent, updateBooking} ) => {
     //     })
     //   })
 
-const handleBooking = () => {
-    updateBooking({
+  const handleBooking = () => {
+    updateEvent({
     id: calendarEvent.id,
     booked: !calendarEvent.booked
     })
 }
-    
-    return (
+
+  const handleRemove = () => {
+    removeUserEvent(calendarEvent.id)
+}
+
+  return (
       <>
-          {calendarEvent && (
+        {calendarEvent && (
             <>
             <figure>
               <Image className='hover:scale-110 transition duration-500 cursor-pointer' src={calendarEvent.images[2].url} alt="Event" width={300} height={300}/>
@@ -39,15 +43,21 @@ const handleBooking = () => {
                   {calendarEvent.dates.start.localDate} {calendarEvent.dates.start.localTime}
                 </p>
           </div>
-          <div>
-            <button onClick={handleBooking}>Book</button>
-            {/* <button onClick={handleRemove}>Remove</button> */}
-          </div>
-        </>)}
-        
+          {calendarEvent.booked && (
+            <div>
+              <button>Resell</button>
+            </div>
+          )}
+          {!calendarEvent.booked && (
+            <div>
+              <button onClick={handleBooking}>Book</button>
+              <button onClick={handleRemove}>Remove</button>
+            </div>
+          )}
+          </>)
+        }
+        {!calendarEvent && <p>Please choose an event.</p>}
       </>
-          
-     
       )
 }
   export default EventCalendarDetail
