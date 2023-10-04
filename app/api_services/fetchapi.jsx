@@ -1,10 +1,10 @@
 const baseURL = 'https://app.ticketmaster.com/discovery/v2/events.json?'
 const baseEventURL = 'https://app.ticketmaster.com/discovery/v2/events/'
-const baseUserHost = 'http://localhost:3000/api/user_events/'
+const baseUserHost = '/api/user_events/'
 const api = 'apikey=0xvibNa31Az9U6GRL9EBMjZW0lfneAHq'
 const dmaid = '&dmaId=607'
 const size = '&size=60'
-const classification = '&classificationName=[music, sports, theatre]'
+const classification = '&classificationName=[music]'
 
 const EventDataService = {
     async getAllEvents() {
@@ -30,7 +30,7 @@ const EventDataService = {
         return data
     },
     async deleteDatabaseEvent(id) {
-        const res = await fetch(baseURL + id, {
+        const res = await fetch(baseUserHost + id, {
             method: 'DELETE'
         })
         return res.status;
