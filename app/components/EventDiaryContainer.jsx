@@ -50,13 +50,13 @@ const EventDiaryContainer = () => {
     <>
       <RecommendedEvent events={events}/>
       <div className='flex mx-auto max-w-[75%] mt-[10%] bg-slate-200 rounded-xl'>
-      <div className='w-1/2'>
-        <EventCalendar userEvents={userEvents} updateCalendarDetail = {updateCalendarDetail}/>
-      </div>
-      <div className='w-1/2 mt-[5%]'>
-        <h2 className='text-2xl'>Your next event</h2>
-        <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent} updateBooking={updateBooking}/>
-      </div>
+        <div className='w-1/2'>
+          <EventCalendar userEvents={userEvents} updateCalendarDetail = {updateCalendarDetail}/>
+        </div>
+        <div className='w-1/2 mt-[5%]'>
+          <h2 className='text-2xl'>Your next event</h2>
+          <EventCalendarDetail userEvents={userEvents} calendarEvent={calendarEvent} updateBooking={updateBooking}/>
+        </div>
       </div>
       <EventList events={events} page = {page}/>
     </>
