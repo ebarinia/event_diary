@@ -59,6 +59,21 @@ const EventDataService = {
         // .then(res => res.json());
         const data = await res.json();
         return data
+    },
+
+    async updateEventReview(ratedEvent) {
+        console.log(ratedEvent)
+        const res = await fetch(baseUserHost + ratedEvent.id,
+            {
+                method: 'PUT',
+                body: JSON.stringify(ratedEvent),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+        // .then(res => res.json());
+        const data = await res.json();
+        return data
     }
 
 }
