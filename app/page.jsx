@@ -1,12 +1,12 @@
-import Header from './components/header/Header'
+
 import EventDiaryContainer from './components/EventDiaryContainer'
+import './globals.css';
 
 
 export default function Home() {
 
   return (
     <>
-    <Header/>
     <EventDiaryContainer/>
     </>
     )
