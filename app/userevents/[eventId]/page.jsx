@@ -3,7 +3,7 @@ import Header from '@/app/components/header/Header'
 import React, {useState, useEffect} from 'react'
 import EventDataService from '@/app/api_services/fetchapi'
 import UserEventForm from '@/app/components/userEvents/UserEventForm'
-// import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 const EventForm = ({params}) => {
 
@@ -14,7 +14,7 @@ const EventForm = ({params}) => {
   const [pricesRated, setPricesRated] = useState (1)
   const [atmosphereRated, setAtmosphereRated] = useState (1)
   const [oneLinerRated, setOneLinerRated] = useState ("No comment")
-  // const router = useRouter()
+  const router = useRouter()
 
   useEffect(() => {
     EventDataService.getOneUserEvent(params.eventId)
@@ -26,7 +26,7 @@ const EventForm = ({params}) => {
 
   const rateEvent = (ratedEvent) => {
     EventDataService.updateEventReview(ratedEvent)
-    // .then(() => {router.push('/userevents')})
+    .then(() => {router.push('/userevents')})
   }
 
 if (isLoading) return <p>React is shit</p>

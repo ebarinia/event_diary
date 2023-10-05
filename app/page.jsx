@@ -1,4 +1,3 @@
-
 import EventDiaryContainer from './components/EventDiaryContainer'
 import './globals.css';
 
