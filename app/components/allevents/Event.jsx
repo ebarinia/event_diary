@@ -40,6 +40,7 @@ const Event = ( {event, page} ) => {
         <p className="text-xs text-neutral-500 dark:text-neutral-300">
           {event.dates.start.localDate} {event.dates.start.localTime}
         </p>
+
       </div>
     </Link>
       )
