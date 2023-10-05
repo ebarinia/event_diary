@@ -5,14 +5,14 @@ import Header from "@/app/components/header/Header";
 import Image from "next/image";
 import Link from "next/link";
 import Map from '../../components/googlemap/Map'
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 export default function EventPage({ params }) {
 
     const [selectedEvent, setSelectedEvent] = useState(null)
     const [favourite, setFavourite] = useState(false)
     const [isLoading, setLoading] = useState(true)
-    const router = useRouter()
+    // const router = useRouter()
     let formattedDate
 
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function EventPage({ params }) {
     const handleBooking = (() => {
         selectedEvent.booked = true;
         EventDataService.addOneUserEvent(selectedEvent)
-        .then(()=>{router.push('/')})
+        // .then(()=>{router.push('/')})
     })
     
     const handleFavourite = (() => {
