@@ -43,6 +43,14 @@ export default function EventPage({ params }) {
         else {
             setFavourite(true)
             selectedEvent.favourite = true
+            selectedEvent.rated = false
+            selectedEvent.rating = {
+                overall: null,
+                venue: null,
+                prices: null,
+                atmosphere: null,
+                oneliner: null
+            }
             EventDataService.addOneUserEvent(selectedEvent)
             .then(()=>{setSelectedEvent(selectedEvent)})
             }
@@ -77,7 +85,7 @@ export default function EventPage({ params }) {
                     <p className="text-gray-400">Location: {selectedEvent._embedded.venues[0].name} - {selectedEvent._embedded.venues[0].city.name}</p>
                     <div className="flex mt-5">
                         <Link onClick={handleBooking} href={selectedEvent.url} target="blank" className="bg-orange-500 hover:bg-orange-600 transition text-white font-bold py-2 px-4 rounded">Book</Link>
-                        <button onClick={handleFavourite}><svg xmlns="http://www.w3.org/2000/svg" fill={favourite ? "red" : "white"}  viewBox="0 0 24 24" strokeWidth={1.5} stroke="black" className="ml-3 w-10 h-10">
+                        <button onClick={handleFavourite}><svg xmlns="http://www.w3.org/2000/svg" fill={favourite ? "orange" : "white"}  viewBox="0 0 24 24" strokeWidth={1.5} stroke="black" className="ml-3 w-10 h-10">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                         </svg></button>
                     </div>
