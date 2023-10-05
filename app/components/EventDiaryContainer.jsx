@@ -73,7 +73,7 @@ const EventDiaryContainer = () => {
     <header className="h-[95vh] flex flex-col items-center justify-center header">
       <div className='mx-auto max-w-[75%]'>
       <h1 class="mb-4 text-center text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Event Diary</h1>
-      <p class="mb-6 text-lg font-normal text-gray-900 lg:text-xl sm:px-16 xl:px-48 text-center">Your personal booking and diary system for your events, all in one place. Discover events in your area, book or shortlist them for later</p>
+      <p class="mb-6 text-lg font-normal text-gray-900 lg:text-xl sm:px-16 xl:px-48 text-center">Your personal booking and diary system for your events, all in one place. <br></br>Discover events in your area, book or shortlist them for later</p>
       </div>
     </header>
     
