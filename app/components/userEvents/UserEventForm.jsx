@@ -1,20 +1,10 @@
 'use client'
 import React, {useEffect} from "react"
 import Image from "next/image"
-import { Rating, Input, Textarea } from "@material-tailwind/react"
+// import { Rating, Input, Textarea } from "@material-tailwind/react"
 
 const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmosphereRated, oneLinerRated, 
     setOverallRated, setVenueRated, setPricesRated, setAtmosphereRated, setOneLinerRated, rateEvent} ) => {
-
-
-    // useEffect(() => {
-    //     setOverallRated(event.overallRated)
-    //     setVenueRated(venueRated)
-    //     setPricesRated(pricesRated)
-    //     setAtmosphereRated(atmosphereRated)
-    //     setOneLinerRated(oneLinerRated)
-    //     }
-    //     , [])
 
     const onRatedSubmit = () => {
         const ratedEvent = {
@@ -55,7 +45,7 @@ const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmospher
                 </div>
             </div>
             
-            <div className='mt-[1%] bg-slate-200 rounded-lg'>
+            {/* <div className='mt-[1%] bg-slate-200 rounded-lg'>
     
                 <div className="md:flex md:items-center mb-5">
                     <div className="md:w-1/3">
@@ -115,7 +105,7 @@ const UserEventForm = ( {event, overallRated, venueRated, pricesRated, atmospher
                     </button>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
         </>
     
